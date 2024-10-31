@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.currentTextView)
     }
 
-
+    //create scope
     private val scope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             scope.launch {
                 for(i in 0..100)
                 {
+                    //with main Thread, do this
                     withContext(Dispatchers.Main){
                         currentTextView.text = "Current opacity: ${i}"
                         cakeImageView.alpha = i / 100f
